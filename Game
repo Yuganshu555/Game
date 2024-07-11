@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Choice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello fellow user, enjoy!</h1>
+    <p>English or Spanish?</p>
+    <form id="languageForm">
+        <label for="choice">Choose between these languages:</label><br>
+        <select id="choice" name="choice" required>
+            <option value="" disabled selected>Select your option</option>
+            <option value="english">English</option>
+            <option value="spanish">Spanish</option>
+        </select><br><br>
+        <input type="submit" value="Submit">
+    </form>
+    <div class="result" id="result"></div>
+
+    <script>
+        document.getElementById('languageForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const choice = document.getElementById('choice').value;
+            let message;
+            if (choice === 'english') {
+                message = "First to move is gay.";
+            } else if (choice === 'spanish') {
+                message = "El primero en moverse es gay.";
+            } else {
+                message = "Please choose between English or Spanish.";
+            }
+            document.getElementById('result').innerText = message;
+        });
+    </script>
+</body>
+</html>
